@@ -29,14 +29,14 @@ public class AutorDAO {
 		
 	}
 	
-	public void remove(int codigo)
+	public void remove(String codigo)
 	{
 		Autor autor=this.read(codigo);
 		em.remove(autor);
 		
 	}
 	
-	public Autor read(int codigo)
+	public Autor read(String codigo)
 	{
 		Autor a=em.find(Autor.class,codigo);
 		return a;
@@ -54,11 +54,11 @@ public class AutorDAO {
 	}
 	
 	
-	public List<Autor> getAutoresNombre(String filtro)
+	public List<Autor> getAutoresNombre(String nombre)
 	{
 		String jpql = "SELECT l FROM Autor a WHERE nombre LIKE ?1 ";
 		Query q = em.createQuery(jpql, Autor.class);
-		q.setParameter(1, "%"+filtro+"%");
+		q.setParameter(1, "%"+nombre+"%");
 		List<Autor> autores = q.getResultList();
 		return autores;
 		

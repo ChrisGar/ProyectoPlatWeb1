@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import negocio.GestionLibrosLocal;
 import modelo.Autor;
+import modelo.Categoria;
 import modelo.Libro;
 import modelo.Persona;
 import modelo.Telefono;
@@ -39,8 +40,8 @@ public class GestionLibrosBean {
 	@PostConstruct
 	public void init() {
 		libro = new Libro();
-		libro.addAutor(new Autor());
-		libros = gl.getLibros();
+		libro.setAutor(new Autor());
+		libro.setCategoria(new Categoria());
 	}
 	
 	
@@ -65,6 +66,15 @@ public class GestionLibrosBean {
 	}
 
 
+	public Libro getLibro() {
+		return libro;
+	}
+
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
 
 	public String getCodigo() {
 		return codigo;
@@ -83,19 +93,6 @@ public class GestionLibrosBean {
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-
-	
-
-
-	public Libro getLibro() {
-		return libro;
-	}
-
-
-	public void setLibro(Libro libro) {
-		this.libro = libro;
 	}
 
 
@@ -127,11 +124,13 @@ public class GestionLibrosBean {
 	public void setLibros(List<Libro> libros) {
 		this.libros = libros;
 	}
+
+
 	
-	public String addAutor() {
-		libro.addAutor(new Autor());
-		return null;
-	}
+
+
+
+	
 
 	
 

@@ -6,24 +6,14 @@
 
 <h:head></h:head> 
 <body> 
-<h:form>
-		<h:outputLabel value="Codigo">
-		</h:outputLabel>
+	<h:form>
+		<h:outputLabel for="txtNombre" value="Nombre" />
+		<h:inputText id="txtNombre" value="#{gestionAutoresBean.autor.nombre}"/>
+		<h:message  for="txtNombre"/>
 		
-		<h:inputText value="#{gestionAutoresBean.codigo}">
-		</h:inputText>
-		<br></br>
+		<h:outputText value="" />
 		
-		<h:outputLabel value="Nombre">
-		</h:outputLabel>
-		
-		<h:inputText value="#{gestionAutoresBean.nombre}">
-		</h:inputText>
-		<br></br>
-		
-		
-		<h:commandButton value="Guardar" action="#{gestionAutoresBean.guardarAutor()}">
-		</h:commandButton>
+		<h:commandButton action="#{gestionAutoresBean.guardarAutor()}" value="Guardar" />
 	</h:form>
 
 </body> 

@@ -7,30 +7,24 @@
 <h:head></h:head> 
 <body> 
 	<h:form>
-<h:panelGrid columns="3">
+	<h:panelGrid columns="3">
 	<h:outputLabel for="txtCodigo" value="Codigo" />
 	<h:inputText id="txtCodigo" value="#{gestionLibrosBean.codigo}" />
 	<h:message for="txtCodigo"/>
 		
-		
-		
+				
 	<h:outputLabel for="txtTitulo" value="Titulo"/>
 	<h:inputText id="txtTitulo"  value="#{gestionLibrosBean.titulo}"/>
 	<h:message for="txtTitulo"/>
 		
 		
-		
-	<h:outputLabel for="txtCategoria" value="Categoria"/>	
-	<h:inputText id="txtCategoria" value="#{gestionLibrosBean.categoria}"/>
-	<h:message for="txtCategoria"/>
-		
-		
+			
 	<h:outputLabel for="txtEditorial" value="Editorial"/>
 	<h:inputText id="txtEditorial" value="#{gestionLibrosBean.editorial}"/>
 	<h:message for="txtEditorial"/>
 		
-	<h:outputLabel value="Autores:" />
-	<h:dataTable value="#{gestionLibrosBean.libro.autores}" var="autor">
+	<h:outputLabel value="Autor:" />
+	<h:dataTable value="#{gestionLibrosBean.libro.autor}" var="autor">
 		<h:column>
 			<f:facet name="header">Código</f:facet>
 			<h:inputText value="#{autor.codigo}" />
@@ -40,14 +34,23 @@
 			<f:facet name="header">Nombre</f:facet>
 			<h:inputText value="#{autor.nombre}" />
 		</h:column>
-		</h:dataTable>
-		<h:commandButton action="#{gestionLibrosBean.addAutor()}" value="+ Autor" />
-		<h:outputText value="" />
+	</h:dataTable>
+	
+	<h:outputLabel value="Categoria:" />
+	<h:dataTable value="#{gestionLibrosBean.libro.categoria}" var="categoria">
+		<h:column>
+			<f:facet name="header">Código</f:facet>
+			<h:inputText value="#{categoria.codigo}" />
+		</h:column>
 		
-		
-		<h:commandButton value="Guardar" action="#{gestionLibrosBean.guardarLibro()}"/>
-		
+		<h:column>
+			<f:facet name="header">Nombre</f:facet>
+			<h:inputText value="#{categoria.nombre}" />
+		</h:column>
+	</h:dataTable>
 </h:panelGrid>
+<h:outputText value="" />
+	<h:commandButton action="#{gestionLibrosBean.guardarLibro()}" value="Guardar" />
 
 
 
