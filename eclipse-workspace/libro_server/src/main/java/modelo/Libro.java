@@ -1,9 +1,15 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Libro implements Serializable{
@@ -15,7 +21,7 @@ public class Libro implements Serializable{
 	@Id
 	private String codigo;
 	private String titulo;
-	private String autor;
+	private List<Autor> autores;
 	private String categoria;
 	private String editorial;
 	
@@ -31,11 +37,12 @@ public class Libro implements Serializable{
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-	public String getAutor() {
-		return autor;
+	
+	public List<Autor> getAutor() {
+		return autores;
 	}
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setAutor(List<Autor> autor) {
+		this.autores = autor;
 	}
 	public String getCategoria() {
 		return categoria;
@@ -52,9 +59,15 @@ public class Libro implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public void addAutor(Autor autor) {
+		if(autores==null)
+			autores = new ArrayList<Autor>();
+		autores.add(autor);
+	}
 	@Override
 	public String toString() {
-		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", autor=" + autor + ", categoria=" + categoria
+		return "Libro [codigo=" + codigo + ", titulo=" + titulo + ", autores=" + autores + ", categoria=" + categoria
 				+ ", editorial=" + editorial + "]";
 	}
 	

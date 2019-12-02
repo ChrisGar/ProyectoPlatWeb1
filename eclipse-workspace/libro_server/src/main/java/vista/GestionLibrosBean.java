@@ -3,10 +3,14 @@ package vista;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import negocio.GestionLibrosLocal;
+import modelo.Autor;
 import modelo.Libro;
+import modelo.Persona;
+import modelo.Telefono;
 @ManagedBean
 
 /**
@@ -20,21 +24,28 @@ public class GestionLibrosBean {
 	@Inject
 	private GestionLibrosLocal gl;
 	
-	
+	private Libro libro = new Libro();
 	/*Beans properties*/
 	private String codigo;
 	private String titulo;
-	private String autor;
 	private String categoria;
 	private String editorial;
 	
 	private List<Libro> libros;
 	
 	
+	@PostConstruct
+	public void init() {
+		libro = new Libro();
+		libro.addAutor(new Autor());
+		libros = gl.getLibros();
+	}
+	
+	
 	public String guardarLibro() {
 		
-		System.out.println(codigo +"  "+ "  " +titulo+ "  " +autor+ "  " +categoria+ "  " +editorial) ;
-		gl.guardarLibro(codigo, titulo,autor,categoria,editorial); 
+		System.out.println(codigo +"  "+ "  " +titulo+ "  " +categoria+ "  " +editorial) ;
+		gl.guardarLibro(codigo, titulo,categoria,editorial); 
 		
 		libros = gl.getLibros();
 		
@@ -73,14 +84,7 @@ public class GestionLibrosBean {
 	}
 
 
-	public String getAutor() {
-		return autor;
-	}
-
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
+	
 
 
 	public String getCategoria() {
@@ -110,6 +114,11 @@ public class GestionLibrosBean {
 
 	public void setLibros(List<Libro> libros) {
 		this.libros = libros;
+	}
+	
+	public String addAutor() {
+		libro.addAutor(new Autor());
+		return null;
 	}
 
 	
