@@ -23,12 +23,13 @@ public class Libro implements Serializable{
 	private String codigo;
 	@Column
 	private String titulo;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Autor> autores;
 	@Column
 	private String categoria;
 	@Column
 	private String editorial;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn
+	private List<Autor> autores;
 	
 	
 	

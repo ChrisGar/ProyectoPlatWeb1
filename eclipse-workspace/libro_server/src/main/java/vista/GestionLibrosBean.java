@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 import negocio.GestionLibrosLocal;
 import modelo.Autor;
@@ -12,6 +13,7 @@ import modelo.Libro;
 import modelo.Persona;
 import modelo.Telefono;
 @ManagedBean
+@SessionScoped
 
 /**
  *  
