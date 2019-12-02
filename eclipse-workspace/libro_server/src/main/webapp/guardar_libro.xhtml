@@ -7,56 +7,49 @@
 <h:head></h:head> 
 <body> 
 	<h:form>
-	<h:panelGrid columns="3">
-	<h:outputLabel for="txtCodigo" value="Codigo" />
-	<h:inputText id="txtCodigo" value="#{gestionLibrosBean.codigo}" />
-	<h:message for="txtCodigo"/>
+		<h:panelGrid columns="6">
+			<h:outputLabel for="txtCodigo" value="Codigo" />
+			<h:inputText id="txtCodigo" value="#{gestionLibrosBean.codigo}" />
+			<h:message for="txtCodigo"/>
 		
 				
-	<h:outputLabel for="txtTitulo" value="Titulo"/>
-	<h:inputText id="txtTitulo"  value="#{gestionLibrosBean.titulo}"/>
-	<h:message for="txtTitulo"/>
-		
-		
+			<h:outputLabel for="txtTitulo" value="Titulo"/>
+			<h:inputText id="txtTitulo"  value="#{gestionLibrosBean.titulo}"/>
+			<h:message for="txtTitulo"/>
 			
-	<h:outputLabel for="txtEditorial" value="Editorial"/>
-	<h:inputText id="txtEditorial" value="#{gestionLibrosBean.editorial}"/>
-	<h:message for="txtEditorial"/>
+			<h:outputLabel for="txtEditorial" value="Editorial"/>
+			<h:inputText id="txtEditorial" value="#{gestionLibrosBean.editorial}"/>
+			<h:message for="txtEditorial"/>
 		
-	<h:outputLabel value="Autor:" />
-	<h:dataTable value="#{gestionLibrosBean.libro.autor}" var="autor">
-		<h:column>
-			<f:facet name="header">Código</f:facet>
-			<h:inputText value="#{autor.codigo}" />
-		</h:column>
+			<h:outputLabel value="Autor:" />
+			<h:dataTable value="#{gestionLibrosBean.libro.autor}" var="autor">
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					<h:inputText value="#{autor.codigo}" />
+				</h:column>
 		
-		<h:column>
-			<f:facet name="header">Nombre</f:facet>
-			<h:inputText value="#{autor.nombre}" />
-		</h:column>
-	</h:dataTable>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:inputText value="#{autor.nombre}" />
+				</h:column>
+			</h:dataTable>
 	
-	<h:outputLabel value="Categoria:" />
-	<h:dataTable value="#{gestionLibrosBean.libro.categoria}" var="categoria">
-		<h:column>
-			<f:facet name="header">Código</f:facet>
-			<h:inputText value="#{categoria.codigo}" />
-		</h:column>
+			<h:outputLabel value="Categoria" />
+			<h:dataTable value="#{gestionLibrosBean.libro.categoria}" var="categoria">
+				<h:column>
+					<f:facet name="header">Código</f:facet>
+					<h:inputText value="#{categoria.codigo}" />
+				</h:column>
 		
-		<h:column>
-			<f:facet name="header">Nombre</f:facet>
-			<h:inputText value="#{categoria.nombre}" />
-		</h:column>
-	</h:dataTable>
-</h:panelGrid>
-<h:outputText value="" />
-	<h:commandButton action="#{gestionLibrosBean.guardarLibro()}" value="Guardar" />
-
-
-
-
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					<h:inputText value="#{categoria.nombre}" />
+				</h:column>
+			</h:dataTable>
+		</h:panelGrid>
+			<h:outputText value="" />
+				<h:commandButton action="#{gestionLibrosBean.guardarLibro()}" value="Guardar" />
 	</h:form>
-
 
 </body> 
 </html>
