@@ -46,7 +46,7 @@ public class GestionLibrosBean {
 		
 		System.out.println(codigo +"  "+ "  " +titulo+ "  " +categoria+ "  " +editorial) ;
 		gl.guardarLibro(codigo, titulo,categoria,editorial); 
-		
+		init();
 		libros = gl.getLibros();
 		
 		return "listar_libros";
@@ -85,6 +85,16 @@ public class GestionLibrosBean {
 
 
 	
+
+
+	public Libro getLibro() {
+		return libro;
+	}
+
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
 
 
 	public String getCategoria() {

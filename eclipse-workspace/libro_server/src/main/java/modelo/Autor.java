@@ -1,18 +1,13 @@
 package modelo;
 
-import java.io.Serializable;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Autor implements Serializable{
+public class Autor{
 	
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2138123610291605463L;
 	@Id
 	private String codigo;
 	private String nombre;
